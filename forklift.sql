@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2024 at 01:38 AM
+-- Generation Time: Mar 18, 2024 at 06:51 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -42,8 +42,7 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`idAcc`, `username`, `password`, `name`, `job`) VALUES
 (1, 'admin1', '202cb962ac59075b964b07152d234b70', '김다윤', ''),
 (2, 'admin2', '202cb962ac59075b964b07152d234b70', '김다윤2', ''),
-(3, 'f', 'f', '8fa14cdd754f91cc6554', 'f'),
-(4, 'ff', '8fa14cdd754f91cc6554c9e71929cce7', 'g', 'f');
+(7, 'admin11', 'accc9105df5383111407fd5b41255e23', '홍길동', 'undefined');
 
 -- --------------------------------------------------------
 
@@ -74,53 +73,29 @@ INSERT INTO `deduction` (`idDed`, `idRecord`, `idRule`, `value`, `description`, 
 -- Triggers `deduction`
 --
 DELIMITER $$
-<<<<<<< HEAD
 CREATE TRIGGER `numOfDedInRecord_delete` AFTER DELETE ON `deduction` FOR EACH ROW BEGIN
    SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = OLD.idRecord);
     UPDATE record 
     SET deduction = @numOfDed
     WHERE idRecord = OLD.idRecord;
-=======
-CREATE TRIGGER `numOfDedInRecord_delete` AFTER DELETE ON `deduction` FOR EACH ROW BEGIN
-   SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = OLD.idRecord);
-    UPDATE record 
-    SET deduction = @numOfDed
-    WHERE idRecord = OLD.idRecord;
->>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
 DELIMITER $$
-<<<<<<< HEAD
 CREATE TRIGGER `numOfDedInRecord_insert` AFTER INSERT ON `deduction` FOR EACH ROW BEGIN
     SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
     UPDATE record 
     SET deduction = @numOfDed
     WHERE idRecord = NEW.idRecord;
-=======
-CREATE TRIGGER `numOfDedInRecord_insert` AFTER INSERT ON `deduction` FOR EACH ROW BEGIN
-    SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
-    UPDATE record 
-    SET deduction = @numOfDed
-    WHERE idRecord = NEW.idRecord;
->>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
 DELIMITER $$
-<<<<<<< HEAD
 CREATE TRIGGER `numOfDedInRecord_update` AFTER UPDATE ON `deduction` FOR EACH ROW BEGIN
     SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
     UPDATE record
     SET deduction = @numOfDed
     WHERE idRecord = NEW.idRecord;
-=======
-CREATE TRIGGER `numOfDedInRecord_update` AFTER UPDATE ON `deduction` FOR EACH ROW BEGIN
-    SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
-    UPDATE record
-    SET deduction = @numOfDed
-    WHERE idRecord = NEW.idRecord;
->>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
@@ -153,36 +128,20 @@ INSERT INTO `disqualification` (`idDis`, `idRecord`, `idRule`, `value`, `descrip
 -- Triggers `disqualification`
 --
 DELIMITER $$
-<<<<<<< HEAD
 CREATE TRIGGER `numOfDis_delete` AFTER DELETE ON `disqualification` FOR EACH ROW BEGIN
    SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = OLD.idRecord);
     UPDATE record 
     SET disqualification = @numOfDis
     WHERE idRecord = OLD.idRecord;
-=======
-CREATE TRIGGER `numOfDis_delete` AFTER DELETE ON `disqualification` FOR EACH ROW BEGIN
-   SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = OLD.idRecord);
-    UPDATE record 
-    SET disqualification = @numOfDis
-    WHERE idRecord = OLD.idRecord;
->>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
 DELIMITER $$
-<<<<<<< HEAD
 CREATE TRIGGER `numOfDis_insert` AFTER INSERT ON `disqualification` FOR EACH ROW BEGIN
     SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = NEW.idRecord);
     UPDATE record 
     SET disqualification = @numOfDis
     WHERE idRecord = NEW.idRecord;
-=======
-CREATE TRIGGER `numOfDis_insert` AFTER INSERT ON `disqualification` FOR EACH ROW BEGIN
-    SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = NEW.idRecord);
-    UPDATE record 
-    SET disqualification = @numOfDis
-    WHERE idRecord = NEW.idRecord;
->>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
