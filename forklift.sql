@@ -74,29 +74,53 @@ INSERT INTO `deduction` (`idDed`, `idRecord`, `idRule`, `value`, `description`, 
 -- Triggers `deduction`
 --
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `numOfDedInRecord_delete` AFTER DELETE ON `deduction` FOR EACH ROW BEGIN
    SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = OLD.idRecord);
     UPDATE record 
     SET deduction = @numOfDed
     WHERE idRecord = OLD.idRecord;
+=======
+CREATE TRIGGER `numOfDedInRecord_delete` AFTER DELETE ON `deduction` FOR EACH ROW BEGIN
+   SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = OLD.idRecord);
+    UPDATE record 
+    SET deduction = @numOfDed
+    WHERE idRecord = OLD.idRecord;
+>>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `numOfDedInRecord_insert` AFTER INSERT ON `deduction` FOR EACH ROW BEGIN
     SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
     UPDATE record 
     SET deduction = @numOfDed
     WHERE idRecord = NEW.idRecord;
+=======
+CREATE TRIGGER `numOfDedInRecord_insert` AFTER INSERT ON `deduction` FOR EACH ROW BEGIN
+    SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
+    UPDATE record 
+    SET deduction = @numOfDed
+    WHERE idRecord = NEW.idRecord;
+>>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `numOfDedInRecord_update` AFTER UPDATE ON `deduction` FOR EACH ROW BEGIN
     SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
     UPDATE record
     SET deduction = @numOfDed
     WHERE idRecord = NEW.idRecord;
+=======
+CREATE TRIGGER `numOfDedInRecord_update` AFTER UPDATE ON `deduction` FOR EACH ROW BEGIN
+    SET @numOfDed = (SELECT COUNT(*) FROM deduction WHERE idRecord = NEW.idRecord);
+    UPDATE record
+    SET deduction = @numOfDed
+    WHERE idRecord = NEW.idRecord;
+>>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
@@ -129,20 +153,36 @@ INSERT INTO `disqualification` (`idDis`, `idRecord`, `idRule`, `value`, `descrip
 -- Triggers `disqualification`
 --
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `numOfDis_delete` AFTER DELETE ON `disqualification` FOR EACH ROW BEGIN
    SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = OLD.idRecord);
     UPDATE record 
     SET disqualification = @numOfDis
     WHERE idRecord = OLD.idRecord;
+=======
+CREATE TRIGGER `numOfDis_delete` AFTER DELETE ON `disqualification` FOR EACH ROW BEGIN
+   SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = OLD.idRecord);
+    UPDATE record 
+    SET disqualification = @numOfDis
+    WHERE idRecord = OLD.idRecord;
+>>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
 DELIMITER $$
+<<<<<<< HEAD
 CREATE TRIGGER `numOfDis_insert` AFTER INSERT ON `disqualification` FOR EACH ROW BEGIN
     SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = NEW.idRecord);
     UPDATE record 
     SET disqualification = @numOfDis
     WHERE idRecord = NEW.idRecord;
+=======
+CREATE TRIGGER `numOfDis_insert` AFTER INSERT ON `disqualification` FOR EACH ROW BEGIN
+    SET @numOfDis = (SELECT COUNT(*) FROM disqualification WHERE idRecord = NEW.idRecord);
+    UPDATE record 
+    SET disqualification = @numOfDis
+    WHERE idRecord = NEW.idRecord;
+>>>>>>> cd18d58c48cfac284c3cd621eecc21dc14189502
 END
 $$
 DELIMITER ;
