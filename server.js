@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken');
 
 const fs = require('fs');
 
+const cors = require('cors');
+app.use(cors())
 
 app.use((req, res, next) => {
     console.log(`${req.method} request for ${req.url}`);
